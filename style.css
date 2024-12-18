@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:300');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo', sans-serif;
+    font-size: 24px;
+    background-color: #ffffff;
+    margin: 0;
+}
+
+.wrap-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #ffffff 30%, #e0e0e0 70%);
+    border: 5px solid #d1d1d1;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.loader {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    animation: rotate 10s linear infinite;
+}
+
+.loader::before {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10rem;
+    height: 10rem;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.loader .box {
+    position: absolute;
+    width: 8rem; /* Original size */
+    height: 8rem; /* Original size */
+    overflow: hidden;
+    border-radius: 20%;
+}
+
+.loader .box::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    opacity: 0.1;
+}
+
+.loader .box:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.loader .box:nth-child(1)::before {
+    top: 50%;
+    left: 50%;
+    background: #1abc9c;
+    animation: pulse1 4s ease-out infinite;
+}
+
+.loader .box:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+
+.loader .box:nth-child(2)::before {
+    top: 50%;
+    right: 50%;
+    background: #3498db;
+    animation: pulse2 4s ease-out infinite;
+}
+
+.loader .box:nth-child(3) {
+    bottom: 0;
+    right: 0;
+}
+
+.loader .box:nth-child(3)::before {
+    bottom: 50%;
+    right: 50%;
+    background: #f39c12;
+    animation: pulse3 4s ease-out infinite;
+}
+
+.loader .box:nth-child(4) {
+    bottom: 0;
+    left: 0;
+}
+
+.loader .box:nth-child(4)::before {
+    bottom: 50%;
+    left: 50%;
+    background: #e74c3c;
+    animation: pulse4 4s linear infinite;
+}
+
+.loader .wrap-text {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.loader .text {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    animation: slide 8s ease-in infinite;
+}
+
+.loader .text span {
+    display: block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    transition: transform 0.5s ease;
+}
+
+.loader .text span:hover {
+    transform: scale(1.2);
+    color: #e67e22;
+}
+
+.loader-text {
+    color: black;
+    transform: translateY(-2rem);
+    letter-spacing: 4px;
+    opacity: 0.9;
+    animation: flicker 1s ease-out infinite alternate;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse1 {
+    0%, 100% { opacity: 0.1; }
+    25%, 75% { opacity: 1; }
+}
+
+@keyframes pulse2 {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 1; }
+}
+
+@keyframes pulse3 {
+    0%, 100% { opacity: 0.1; }
+    75% { opacity: 1; }
+}
+
+@keyframes pulse4 {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 1; }
+}
+
+@keyframes slide {
+    0%, 10.5% { transform: translateY(0); }
+    12.5% { transform: translateY(-50px); }
+    25% { transform: translateY(-50px); }
+    35% { transform: translateY(-100px); }
+    47.5% { transform: translateY(-100px); }
+    50% { transform: translateY(-150px); }
+    60% { transform: translateY(-150px); }
+    72.5% { transform: translateY(-200px); }
+    75% { transform: translateY(-250px); }
+    87.5% { transform: translateY(-250px); }
+    100% { transform: translateY(-300px); }
+}
+
+@keyframes flicker {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+    .loader {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .loader .text {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.5em; /* Reduced font size */
+    }
+
+    .loader-text {
+        font-size: 18px; /* Reduced font size */
+    }
+
+    .loader .box {
+        width: 6rem; /* Adjusted for better visibility on mobile */
+        height: 6rem; /* Adjusted for better visibility on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .loader {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .loader .text {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.2em; /* Further reduced font size */
+    }
+
+    .loader-text {
+        font-size: 16px; /* Further reduced font size */
+    }
+
+    .loader .box {
+        width: 3rem; /* Further adjusted for mobile */
+        height: 3rem; /* Further adjusted for mobile */
+    }
+}

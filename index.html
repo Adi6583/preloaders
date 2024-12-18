@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Preloader Example</title>
+</head>
+<body>
+    <div class="wrap-loader">
+        <div class="loader">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="wrap-text">
+                <div class="text"><span>1</span><span>2</span><span>3</span><span>4</span><span>6</span><span>8</span></div>
+            </div>
+        </div><br>
+        <div class="loader-text">Please Wait........</div>
+    </div>
+
+    <div class="main-content" style="display: none;">
+        <h1>Welcome to My Website</h1>
+        <p>This is the main content of the page.</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.wrap-loader').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 8000); // delay as needed
+        };
+    </script>
+</body>
+</html>
